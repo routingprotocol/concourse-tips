@@ -1,0 +1,17 @@
+jobs:
+- name: job-hello-world
+  public: true
+  serial: true
+  build_logs_to_retain: 25
+  plan:
+  - timeout: 1h
+    do:
+    - aggregate:
+      - get: morning-hello-window
+        trigger: true
+      - get: pipeline-resource
+      - get: upload-minio-s3
+        resource: dev-upload-minio-s3
+      - task: hello-world
+        run: 
+          path: pipeline/sh/hello_world.sh
