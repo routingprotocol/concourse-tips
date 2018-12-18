@@ -1,0 +1,21 @@
+groups:
+- name: all
+  jobs:
+  - job1-dev-dc1
+  - job1-deb-dc2
+  - job1-prd-dc1
+  - job1-prd-dc2
+  - job1-nprd-dc1
+  - job1-nprd-dc2
+- name: dev
+  jobs:
+  - job1-deb-dc1
+  - job1-dev-dc2
+- name: nprd
+  jobs:
+  - job1-nprd-dc1
+  - job1-nprd-dc2
+- name: prd
+  jobs:
+  - job1-prd-dc1
+  - job1-prd-dc2
