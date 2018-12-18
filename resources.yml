@@ -1,0 +1,17 @@
+---
+resource_types:
+- name: upload-minio-s3
+  type: docker-image
+  source:
+    repository: my-docker-registry.com:443/somewhere/s3-resource-obj
+    ca_certs:
+    - domain: my-docker-registry.com:443
+      cert: my-cert
+
+resources:
+- name: pipeline-resource
+  type: git
+  source:
+    uri: https://github.com/routingprotocol/concourse-tips.git
+    private_key: concourse-tips-github-private-key
+    branch: master
